@@ -19,7 +19,7 @@ def macroDependencies(version: String) =
 val shared = Seq(
   libraryDependencies ++= macroDependencies(scalaVersion.value),
   libraryDependencies ++= Seq(
-    "com.lihaoyi" %%% "utest" % "0.5.4" % "test",
+    "com.lihaoyi" %%% "utest" % "0.6.4" % "test",
     "com.lihaoyi" %%% "sourcecode" % "0.1.4"
   ),
   scalaJSStage in Global := FullOptStage,
@@ -27,8 +27,8 @@ val shared = Seq(
   version := Constants.version,
   scalaVersion := Constants.scala212,
   crossScalaVersions := Seq(Constants.scala210, Constants.scala211, Constants.scala212),
-  libraryDependencies += "com.lihaoyi" %% "acyclic" % "0.1.5" % "provided",
-  addCompilerPlugin("com.lihaoyi" %% "acyclic" % "0.1.5"),
+  libraryDependencies += "com.lihaoyi" %% "acyclic" % "0.1.7" % "provided",
+  addCompilerPlugin("com.lihaoyi" %% "acyclic" % "0.1.7"),
   autoCompilerPlugins := true,
   testFrameworks += new TestFramework("utest.runner.Framework"),
   publishTo := Some("releases" at "https://oss.sonatype.org/service/local/staging/deploy/maven2"),
@@ -173,7 +173,7 @@ lazy val cssparse = crossProject(JSPlatform, JVMPlatform, NativePlatform)
     name := "cssparse"
   )
   .jvmSettings(
-    libraryDependencies += "net.sourceforge.cssparser" % "cssparser" % "0.9.18" % "test"
+    libraryDependencies += "net.sourceforge.cssparser" % "cssparser" % "0.9.26" % "test"
   )
   .nativeSettings(nativeSettings)
 lazy val cssparseJVM = cssparse.jvm
@@ -222,8 +222,8 @@ lazy val demo = project.enablePlugins(ScalaJSPlugin)
   .settings(
     shared,
     is212Only,
-    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.2",
-    libraryDependencies += "com.lihaoyi" %%% "scalatags" % "0.6.5",
+    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.6",
+    libraryDependencies += "com.lihaoyi" %%% "scalatags" % "0.6.7",
     emitSourceMaps := false,
     noPublish
   )
